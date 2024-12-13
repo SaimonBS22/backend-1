@@ -1,0 +1,22 @@
+[
+  {
+    "title": "auto",
+    "description": "Buenisimas",
+    "price": 75000,
+    "thumbnail": "http//:example.com",
+    "code": "gf56de23",
+    "stock": 6,
+    "status": true,
+    "category": "calzado"
+  },
+  {
+    "title": "Moto",
+    "description": "super rapido",
+    "price": 25000,
+    "thumbnail": "http//:example.com",
+    "code": "sda3qw21",
+    "stock": 3,
+    "status": true,
+    "category": "motocicletas"
+  }
+]
