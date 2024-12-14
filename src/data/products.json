@@ -1,17 +1,6 @@
 [
   {
-    "id": 1,
-    "title": "camioneta",
-    "description": "B",
-    "price": 550000,
-    "thumbnail": "http//:example.com",
-    "code": "2hjk9j2",
-    "stock": 34,
-    "status": true,
-    "category": "ropa"
-  },
-  {
-    "id": 2,
+    "id": "2",
     "title": "moto",
     "description": "B",
     "price": 550000,
@@ -22,34 +11,45 @@
     "category": "ropa"
   },
   {
-    "id": 2,
-    "title": "moto",
+    "id": "3",
+    "title": "auto",
     "description": "B",
     "price": 550000,
     "thumbnail": "http//:example.com",
-    "code": "jer789012a",
+    "code": "jer7",
     "stock": 34,
     "status": true,
     "category": "ropa"
   },
   {
-    "id": 2,
-    "title": "moto",
+    "id": "5",
+    "title": "auto",
     "description": "B",
     "price": 550000,
     "thumbnail": "http//:example.com",
-    "code": "jer789012",
+    "code": "jer",
     "stock": 34,
     "status": true,
     "category": "ropa"
   },
   {
-    "id": 2,
-    "title": "moto",
+    "id": "6",
+    "title": "auto",
     "description": "B",
     "price": 550000,
     "thumbnail": "http//:example.com",
-    "code": "jer78901",
+    "code": "jer3rf34",
+    "stock": 34,
+    "status": true,
+    "category": "ropa"
+  },
+  {
+    "id": "7",
+    "title": "auto",
+    "description": "B",
+    "price": 550000,
+    "thumbnail": "http//:example.com",
+    "code": "jer3r",
     "stock": 34,
     "status": true,
     "category": "ropa"

@@ -7,11 +7,11 @@ class ProductManager{
         this.products = [];
         this.path = path;
     }
-    async addProducts(id, title, description, price, thumbnail, code, stock, status, category){
+    async addProducts( title, description, price, thumbnail, code, stock, status, category){
 
         const arrayProducts = await this.readFile()
 
-        if(!id ||!title || !description || !price || !thumbnail || !code || !stock || !status || !category){
+        if(!title || !description || !price || !thumbnail || !code || !stock || !status || !category){
             console.log('Todos los campos son obligatorios')
             return;
         }
@@ -19,8 +19,14 @@ class ProductManager{
             console.log('no se puede repetir el código');
             return;
         }
+
+        const highestId = arrayProducts.reduce((max, product) => Math.max(max, parseInt(product.id)), 0);
+
+        const id = highestId + 1;
+
+
         const nuevoProducto = {
-            id: ++ProductManager.id,
+            id: JSON.stringify(id),
             title,
             description,
             price,
@@ -53,8 +59,9 @@ class ProductManager{
         
     
     async saveFile(arrayProducts){
+        const data = JSON.stringify(arrayProducts, null, 2)
         try {
-            await fs.writeFile(this.path, JSON.stringify(arrayProducts, null, 2))
+            await fs.writeFile(this.path, data)
             console.log('guardado')
         } catch (error) {
             console.log('hubo un error guardando el archivo', error.message)
