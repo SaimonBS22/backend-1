@@ -42,7 +42,6 @@ class ProductManager{
     async getProductsId(id){
 
         const arrayProducts =  await this.readFile()
-      
         const producto = arrayProducts.find(item => item.id === id)
         
         if(!producto){
@@ -56,8 +55,9 @@ class ProductManager{
     async saveFile(arrayProducts){
         try {
             await fs.writeFile(this.path, JSON.stringify(arrayProducts, null, 2))
+            console.log('guardado')
         } catch (error) {
-            console.log('hubo un error guardando el archivo')
+            console.log('hubo un error guardando el archivo', error.message)
         }
     }
     

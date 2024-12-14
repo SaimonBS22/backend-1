@@ -33,10 +33,10 @@ app.get('/api/products/:pid', async (req, res) => {
 })
 
 app.post('/api/products', async (req, res) =>{
-    let id = ProductManager.id + 1 
+    let id = ++ProductManager.id
     const { title, description, price, thumbnail, code, stock, status, category} = req.body
-    const nuevoProducto = await manager.addProducts(id, title, description, price, thumbnail, code, stock, status, category)
-    await manager.saveFile(nuevoProducto)
+    const nuevoProducto = await manager.addProducts(id.toString(), title, description, price, thumbnail, code, stock, status, category)
+   await manager.saveFile(nuevoProducto)
    
    res.send('producto creado')
 
@@ -62,10 +62,6 @@ app.put("/api/products/:pid", async (req ,res) =>{
         productos.category = category
 
         await manager.saveFile(products)
-        
-        
-        const updatedProducts = await manager.getProducts();
-        console.log(updatedProducts);
 
         res.send('producto actualizado')
     }else{

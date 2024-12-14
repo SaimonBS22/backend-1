@@ -1,22 +1,57 @@
 [
   {
-    "title": "auto",
-    "description": "Buenisimas",
-    "price": 75000,
+    "id": 1,
+    "title": "camioneta",
+    "description": "B",
+    "price": 550000,
     "thumbnail": "http//:example.com",
-    "code": "gf56de23",
-    "stock": 6,
+    "code": "2hjk9j2",
+    "stock": 34,
     "status": true,
-    "category": "calzado"
+    "category": "ropa"
   },
   {
-    "title": "Moto",
-    "description": "super rapido",
-    "price": 25000,
+    "id": 2,
+    "title": "moto",
+    "description": "B",
+    "price": 550000,
     "thumbnail": "http//:example.com",
-    "code": "sda3qw21",
-    "stock": 3,
+    "code": "jknv31l",
+    "stock": 34,
     "status": true,
-    "category": "motocicletas"
+    "category": "ropa"
+  },
+  {
+    "id": 2,
+    "title": "moto",
+    "description": "B",
+    "price": 550000,
+    "thumbnail": "http//:example.com",
+    "code": "jer789012a",
+    "stock": 34,
+    "status": true,
+    "category": "ropa"
+  },
+  {
+    "id": 2,
+    "title": "moto",
+    "description": "B",
+    "price": 550000,
+    "thumbnail": "http//:example.com",
+    "code": "jer789012",
+    "stock": 34,
+    "status": true,
+    "category": "ropa"
+  },
+  {
+    "id": 2,
+    "title": "moto",
+    "description": "B",
+    "price": 550000,
+    "thumbnail": "http//:example.com",
+    "code": "jer78901",
+    "stock": 34,
+    "status": true,
+    "category": "ropa"
   }
 ]
