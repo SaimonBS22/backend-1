@@ -11,7 +11,7 @@ const cartRouter = Router()
 const manager = new ProductManager('./src/data/cart.json')
 
 cartRouter.get('/', async (req, res)=>{
-    const productos = await manager.getProducts()
+    const productos = await manager.readFile()
 
     res.send(productos)
 })
@@ -43,14 +43,13 @@ cartRouter.post('/', async (req, res) =>{
 
 
 cartRouter.get('/:cid', async (req, res) => {
-    // const id = req.params.cid;
-    // const productoId = await manager.readFile(id)
-
-
-    // res.send(productoId)
-    
-    
+    const id = req.params.cid;
+    let productoId = await manager.readFile(id)
+    productoId = await manager.getProductsId(id)
+    res.send(productoId)
 })
+
+cartRouter.post('/:cid/products/:pid')
 
 
 

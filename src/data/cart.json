@@ -43,5 +43,20 @@
         "category": "ropa"
       }
     ]
+  },
+  {
+    "id": "1734410127934",
+    "products": [
+      {
+        "title": "lancha",
+        "description": "B",
+        "price": 550000,
+        "thumbnail": "http//:example.com",
+        "code": "rfvn",
+        "stock": 34,
+        "status": true,
+        "category": "ropa"
+      }
+    ]
   }
 ]
