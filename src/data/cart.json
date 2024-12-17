@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1734408067569",
+    "products": [
+      {
+        "title": "moto",
+        "description": "B",
+        "price": 550000,
+        "thumbnail": "http//:example.com",
+        "code": "rfvnr",
+        "stock": 34,
+        "status": true,
+        "category": "ropa"
+      }
+    ]
+  },
+  {
+    "id": "1734408386752",
+    "products": [
+      {
+        "title": "auto",
+        "description": "B",
+        "price": 550000,
+        "thumbnail": "http//:example.com",
+        "code": "rfvn",
+        "stock": 34,
+        "status": true,
+        "category": "ropa"
+      }
+    ]
+  },
+  {
+    "id": "1734408450908",
+    "products": [
+      {
+        "title": "camioneta",
+        "description": "B",
+        "price": 550000,
+        "thumbnail": "http//:example.com",
+        "code": "rfvn",
+        "stock": 34,
+        "status": true,
+        "category": "ropa"
+      }
+    ]
+  }
+]

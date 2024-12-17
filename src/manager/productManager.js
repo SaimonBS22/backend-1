@@ -77,5 +77,15 @@ class ProductManager{
             console.log('hubo un error al leer el archivo')
         }
     }
+
+    async getAllCarts(respuesta) {
+        try {
+            await fs.writeFile(this.file, JSON.stringify(respuesta, null, 2))
+        } catch (error) {
+            return []; 
+        }
+    }
+
+
 }
 export default ProductManager
