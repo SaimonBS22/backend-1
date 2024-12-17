@@ -19,25 +19,33 @@ cartRouter.get('/', async (req, res)=>{
 
 cartRouter.post('/', async (req, res) =>{
     let id = Date.now().toString()
-    let products = req.body
+    let products = Array.isArray(req.body) ? req.body : [req.body]
+   
+    let productosConId = products.map((product)=>{
+        return{
+            ...product,
+            id:`${id}-1`
+        }
+    })
+    console.log(productosConId)
+
     let nuevoCarrito = {
         id : id,
-        products : [products]
+        products : productosConId
 
     }
  try{
     let carritosExistentes = await manager.readFile();
-    if (!carritosExistentes) {
+    if (!Array.isArray(carritosExistentes)) {
         carritosExistentes = []; 
     }
     carritosExistentes.push(nuevoCarrito);
 
-    await manager.saveFile(carritosExistentes);
-
+    await manager.saveFile(carritosExistentes)
     res.send('producto creado')
 }
  catch(error){
-    res.send('producto no creado')
+    res.send('producto no creado' + error)
  }
 })
 
@@ -49,7 +57,23 @@ cartRouter.get('/:cid', async (req, res) => {
     res.send(productoId)
 })
 
-cartRouter.post('/:cid/products/:pid')
+cartRouter.post('/:cid/products/:pid', async (req, res)=>{
+    const id = req.params.cid;
+
+    const carritoId = await manager.readFile(id)
+    let quantity = (qty) =>{
+        if(carritoId === carritoId){
+            qty++
+        }
+    }
+    let carrito = {
+        product : carritoId,
+        quantity: quantity()
+    }
+
+    await manager.saveFile(carrito)
+    res.send('se creo')
+})
 
 
 

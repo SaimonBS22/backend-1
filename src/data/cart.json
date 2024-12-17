@@ -1,21 +1,6 @@
 [
   {
-    "id": "1734408067569",
-    "products": [
-      {
-        "title": "moto",
-        "description": "B",
-        "price": 550000,
-        "thumbnail": "http//:example.com",
-        "code": "rfvnr",
-        "stock": 34,
-        "status": true,
-        "category": "ropa"
-      }
-    ]
-  },
-  {
-    "id": "1734408386752",
+    "id": "1734463740214",
     "products": [
       {
         "title": "auto",
@@ -25,37 +10,24 @@
         "code": "rfvn",
         "stock": 34,
         "status": true,
-        "category": "ropa"
+        "category": "ropa",
+        "id": "1734463740214"
       }
     ]
   },
   {
-    "id": "1734408450908",
+    "id": "1734463771784",
     "products": [
       {
-        "title": "camioneta",
+        "title": "auto",
         "description": "B",
         "price": 550000,
         "thumbnail": "http//:example.com",
         "code": "rfvn",
         "stock": 34,
         "status": true,
-        "category": "ropa"
-      }
-    ]
-  },
-  {
-    "id": "1734410127934",
-    "products": [
-      {
-        "title": "lancha",
-        "description": "B",
-        "price": 550000,
-        "thumbnail": "http//:example.com",
-        "code": "rfvn",
-        "stock": 34,
-        "status": true,
-        "category": "ropa"
+        "category": "ropa",
+        "id": "1734463771784-1"
       }
     ]
   }
