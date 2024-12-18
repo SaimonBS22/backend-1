@@ -1,16 +1,5 @@
 [
   {
-    "id": "2",
-    "title": "moto",
-    "description": "B",
-    "price": 550000,
-    "thumbnail": "http//:example.com",
-    "code": "jknv31l",
-    "stock": 34,
-    "status": true,
-    "category": "ropa"
-  },
-  {
     "id": "3",
     "title": "auto",
     "description": "B",
@@ -50,6 +39,17 @@
     "price": 550000,
     "thumbnail": "http//:example.com",
     "code": "jelxkoe89",
+    "stock": 34,
+    "status": true,
+    "category": "ropa"
+  },
+  {
+    "id": 8,
+    "title": "parapente",
+    "description": "B",
+    "price": 550000,
+    "thumbnail": "http//:example.com",
+    "code": "jelxk",
     "stock": 34,
     "status": true,
     "category": "ropa"
