@@ -1,34 +1,19 @@
 [
   {
-    "id": "1734463740214",
+    "id": 1,
     "products": [
       {
-        "title": "auto",
-        "description": "B",
-        "price": 550000,
-        "thumbnail": "http//:example.com",
-        "code": "rfvn",
-        "stock": 34,
-        "status": true,
-        "category": "ropa",
-        "id": "1734463740214"
+        "product": "6",
+        "quantity": 5
       }
     ]
   },
   {
-    "id": "1734463771784",
-    "products": [
-      {
-        "title": "auto",
-        "description": "B",
-        "price": 550000,
-        "thumbnail": "http//:example.com",
-        "code": "rfvn",
-        "stock": 34,
-        "status": true,
-        "category": "ropa",
-        "id": "1734463771784-1"
-      }
-    ]
+    "id": 2,
+    "products": []
+  },
+  {
+    "id": 3,
+    "products": []
   }
 ]

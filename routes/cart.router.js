@@ -1,78 +1,35 @@
 import { json, Router } from 'express'
-import ProductManager from "../src/manager/productManager.js"
+import CartManager from '../src/manager/cartManager.js'
 
 
 const cartRouter = Router()
 
 
 
-
-
-const manager = new ProductManager('./src/data/cart.json')
-
-cartRouter.get('/', async (req, res)=>{
-    const productos = await manager.readFile()
-
-    res.send(productos)
-})
+const manager = new CartManager('./src/data/cart.json')
 
 
 cartRouter.post('/', async (req, res) =>{
-    let id = Date.now().toString()
-    let products = Array.isArray(req.body) ? req.body : [req.body]
-   
-    let productosConId = products.map((product)=>{
-        return{
-            ...product,
-            id:`${id}-1`
-        }
-    })
-    console.log(productosConId)
-
-    let nuevoCarrito = {
-        id : id,
-        products : productosConId
-
-    }
- try{
-    let carritosExistentes = await manager.readFile();
-    if (!Array.isArray(carritosExistentes)) {
-        carritosExistentes = []; 
-    }
-    carritosExistentes.push(nuevoCarrito);
-
-    await manager.saveFile(carritosExistentes)
-    res.send('producto creado')
-}
- catch(error){
-    res.send('producto no creado' + error)
- }
+    const nuevoCarrito = await manager.crearCarrito()
+    res.json(nuevoCarrito)
 })
 
 
 cartRouter.get('/:cid', async (req, res) => {
-    const id = req.params.cid;
-    let productoId = await manager.readFile(id)
-    productoId = await manager.getProductsId(id)
-    res.send(productoId)
+    const cartId = parseInt(req.params.cid)
+
+    const carritoBuscado = await manager.getCarritoId(cartId)
+    res.json(carritoBuscado)
 })
 
-cartRouter.post('/:cid/products/:pid', async (req, res)=>{
-    const id = req.params.cid;
+cartRouter.post("/:cid/products/:pid", async (req, res) => {
+    const cartId = parseInt(req.params.cid); 
+    const productId = req.params.pid; 
+    const quantity = req.body.quantity || 1; 
 
-    const carritoId = await manager.readFile(id)
-    let quantity = (qty) =>{
-        if(carritoId === carritoId){
-            qty++
-        }
-    }
-    let carrito = {
-        product : carritoId,
-        quantity: quantity()
-    }
+        const actualizarCarrito = await manager.agregarProductoAlCarrito(cartId, productId, quantity); 
+        res.json(actualizarCarrito.products);
 
-    await manager.saveFile(carrito)
-    res.send('se creo')
 })
 
 

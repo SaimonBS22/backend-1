@@ -1,5 +1,5 @@
 import {promises as fs} from 'fs'
-import { json } from 'stream/consumers';
+
 
 class ProductManager{
     static id = 0;
@@ -26,7 +26,7 @@ class ProductManager{
 
 
         const nuevoProducto = {
-            id: JSON.stringify(id),
+            id: id,
             title,
             description,
             price,
@@ -77,15 +77,6 @@ class ProductManager{
             console.log('hubo un error al leer el archivo')
         }
     }
-
-    async getAllCarts(respuesta) {
-        try {
-            await fs.writeFile(this.file, JSON.stringify(respuesta, null, 2))
-        } catch (error) {
-            return []; 
-        }
-    }
-
 
 }
 export default ProductManager

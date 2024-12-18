@@ -9,16 +9,20 @@ const manager = new ProductManager('./src/data/products.json')
 
 
 productRouter.get('/', async (req, res) => {
+    let limit = req.query.limit
     const productos = await manager.getProducts()
+    if(limit){
+        res.send(productos.slice(0,limit))
+    }else{
     res.send({
         status: 'success', 
         productos
     })
-})
+}})
 
 
 productRouter.get('/:pid', async (req, res) => {
-   const id = req.params.pid;
+   const id = req.params.pid
    const productoId = await manager.getProductsId(id)
    res.send(productoId)
 
