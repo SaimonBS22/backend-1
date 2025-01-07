@@ -33,7 +33,7 @@
     "category": "ropa"
   },
   {
-    "id": 7,
+    "id": "7",
     "title": "auto",
     "description": "B",
     "price": 550000,
@@ -44,12 +44,34 @@
     "category": "ropa"
   },
   {
-    "id": 8,
+    "id": "8",
     "title": "parapente",
     "description": "B",
     "price": 550000,
     "thumbnail": "http//:example.com",
     "code": "jelxk",
+    "stock": 34,
+    "status": true,
+    "category": "ropa"
+  },
+  {
+    "id": "9",
+    "title": "paracadas",
+    "description": "B",
+    "price": 550000,
+    "thumbnail": "http//:example.com",
+    "code": "jelxkfgy64",
+    "stock": 34,
+    "status": true,
+    "category": "ropa"
+  },
+  {
+    "id": "10",
+    "title": "paracadas",
+    "description": "B",
+    "price": 550000,
+    "thumbnail": "http//:example.com",
+    "code": "jelxkfgy",
     "stock": 34,
     "status": true,
     "category": "ropa"

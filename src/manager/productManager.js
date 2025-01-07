@@ -26,7 +26,7 @@ class ProductManager{
 
 
         const nuevoProducto = {
-            id: id,
+            id: JSON.stringify(id),
             title,
             description,
             price,
