@@ -1,44 +1,47 @@
-const socket = io()
+const socket = io();
 
-socket.on('productos', (data) =>{
-    renderProducto(data)
+socket.on("productos", (data) => {
+    renderProductos(data);
 })
 
 
-const renderProducto =  (productos)=>{
+const renderProductos = (productos) => {
+    const contenedorProductos = document.getElementById("contenedorProductos");
+    contenedorProductos.innerHTML = "";
+    productos.forEach(item => {
+        const card = document.createElement("div");
 
-    const contenedorProductos = document.getElementById('contenedorProductos')
-
-   productos.forEach( item =>{
-        const producto = document.createElement('div')
-        producto.innerHTML = `
-                                <p>${item.title}</p>
-                                <p>${item.description}</p>
-                                <p>${item.price}</p>
-                                <p>${item.thumbnail}</p>
-                                <p>${item.code}</p>
-                                <p>${item.stock}</p>
-                                <p>${item.category}</p>
-                                <p>${item.status}</p>
-        `
-        contenedorProductos.appendChild(producto)  
+        card.innerHTML = `
+                                <p> ${item.title} <p>
+                                <p> ${item.price} <p>
+                                <p> ${item.description} <p>
+                                <button> Eliminar </button>
+                        `
+        contenedorProductos.appendChild(card);
     })
 }
 
-document.getElementById('botonAgregar').addEventListener('click', ()=>{
-    agregarProducto();
+const eliminarProducto = (id) => {
+    socket.emit("eliminarProducto", id); 
+}
+
+
+
+document.getElementById("btnEnviar").addEventListener("click", () => {
+    agregarProducto(); 
 })
 
-const agregarProducto = ()=>{
+const agregarProducto = () => {
     const producto = {
-        title : document.getElementById('title').value,
-        descripcion : document.getElementById('description').value,
-        precio : document.getElementById('price').value,
-        img : document.getElementById('img').value,
-        codigo : document.getElementById('code').value,
-        stock : document.getElementById('stock').value,
-        categoria : document.getElementById('category').value,
-        status : document.getElementById('status').value === 'true'
+        title: document.getElementById("title").value,
+        description: document.getElementById("description").value,
+        price: document.getElementById("price").value,
+        img: document.getElementById("img").value,
+        code: document.getElementById("code").value,
+        stock: document.getElementById("stock").value,
+        category: document.getElementById("category").value,
+        status: document.getElementById("status").value === "true",
     }
-    socket.emit('agregarProucto', producto)
+
+    socket.emit("agregarProducto", producto); 
 }

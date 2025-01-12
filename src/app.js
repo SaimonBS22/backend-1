@@ -19,20 +19,28 @@ const PUERTO = 8080
 const httpServer = app.listen(PUERTO, () =>{
     console.log(`escuchando en ${PUERTO}`)
 })
-const io = new Server(httpServer)
+const io = new Server(httpServer); 
 
-io.on('connection', async (socket)=>{
+io.on("connection", async (socket) => {
+  console.log("Un cliente se conecto");
 
-    console.log('conectado')
+  
+  socket.emit("productos", await manager.getProducts()); 
 
-    socket.emit('productos', await manager.getProducts())
 
-    socket.on('agregarProducto', async (producto)=>{
-        await manager.addProducts(producto)
-        io.sockets.emit('productos', await manager.getProducts())
-    })
+  socket.on("agregarProducto", async (producto) => {
+    await manager.addProducts(producto); 
+    io.sockets.emit("productos", await manager.getProducts())
+  })
+
+
+
+  socket.on("eliminarProducto", async (id) => {
+    console.log(id); 
+  })
 
 })
+
 
 
 

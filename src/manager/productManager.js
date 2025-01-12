@@ -39,6 +39,7 @@ class ProductManager{
         arrayProducts.push(nuevoProducto)
 
         await this.saveFile(arrayProducts)
+        
     }
     async getProducts(){
         const arrayProducts = await this.readFile()
