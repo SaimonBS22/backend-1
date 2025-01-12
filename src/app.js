@@ -4,6 +4,9 @@ import { Server } from 'socket.io'
 import productRouter from './routes/products.router.js'
 import cartRouter from './routes/cart.router.js'
 import viewsRouter from './routes/views.router.js'
+import ProductManager from './manager/productManager.js'
+
+const manager = new ProductManager('./src/data/products.json')
 
 const app = express()
 
@@ -17,6 +20,19 @@ const httpServer = app.listen(PUERTO, () =>{
     console.log(`escuchando en ${PUERTO}`)
 })
 const io = new Server(httpServer)
+
+io.on('connection', async (socket)=>{
+
+    console.log('conectado')
+
+    socket.emit('productos', await manager.getProducts())
+
+    socket.on('agregarProducto', async (producto)=>{
+        await manager.addProducts(producto)
+        io.sockets.emit('productos', await manager.getProducts())
+    })
+
+})
 
 
 
