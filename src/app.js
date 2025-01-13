@@ -16,30 +16,43 @@ app.use(express.static('./src/public'))
 
 
 const PUERTO = 8080
-const httpServer = app.listen(PUERTO, () =>{
-    console.log(`escuchando en ${PUERTO}`)
-})
-const io = new Server(httpServer); 
+const httpServer = app.listen(PUERTO, () => {
+    console.log(`Escuchando en el puerto ${PUERTO}`);
+});
+
+const io = new Server(httpServer);
 
 io.on("connection", async (socket) => {
-  console.log("Un cliente se conecto");
+    console.log("Un cliente se conectó");
 
   
-  socket.emit("productos", await manager.getProducts()); 
+    socket.emit("productos", await manager.getProducts());
 
+  
+    socket.on("agregarProducto", async (producto) => {
+        await manager.addProducts(
+            producto.title,
+            producto.description,
+            producto.price,
+            producto.img,
+            producto.code,
+            producto.stock,
+            producto.status,
+            producto.category
+        );
+        const productosActualizados = await manager.getProducts();
+        io.sockets.emit("productos", productosActualizados);
+    });
 
-  socket.on("agregarProducto", async (producto) => {
-    await manager.addProducts(producto); 
-    io.sockets.emit("productos", await manager.getProducts())
-  })
+    socket.on("eliminarProducto", async (id) => {
+        const productos = await manager.getProducts();
+        const productosFiltrados = productos.filter((item) => item.id !== id);
 
+        await manager.saveFile(productosFiltrados); 
+        io.sockets.emit("productos", productosFiltrados); 
+    });
+});
 
-
-  socket.on("eliminarProducto", async (id) => {
-    console.log(id); 
-  })
-
-})
 
 
 
