@@ -1,10 +1,12 @@
 import  express from 'express'
+import mongoose from 'mongoose'
 import { engine } from 'express-handlebars'
 import { Server } from 'socket.io'
 import productRouter from './routes/products.router.js'
 import cartRouter from './routes/cart.router.js'
 import viewsRouter from './routes/views.router.js'
 import ProductManager from './manager/productManager.js'
+import productoModel from './model/producto.model.js'
 
 const manager = new ProductManager('./src/data/products.json')
 
@@ -13,6 +15,8 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('./src/public'))
+
+
 
 
 const PUERTO = 8080
@@ -67,6 +71,16 @@ app.set('views', './src/views/')
 app.use('/api/products', productRouter)
 app.use('/api/cart', cartRouter)
 app.use('/', viewsRouter)
+
+
+mongoose.connect('mongodb+srv://simonblaksley:pepo300523@cluster0.1xoua.mongodb.net/entregaFinal?retryWrites=true&w=majority&appName=Cluster0')
+.then(()=>{console.log('Conectado a MongoDb')})
+.catch((err)=>{console.error('Hubo un error', err)})
+
+
+const respuesta = await productoModel.find().lean()
+console.log(respuesta)
+
 
 
 

@@ -20,27 +20,5 @@
     "stock": 34,
     "status": true,
     "category": "ropa"
-  },
-  {
-    "id": "7",
-    "title": "auto",
-    "description": "B",
-    "price": 550000,
-    "thumbnail": "http//:example.com",
-    "code": "jelxkoe89",
-    "stock": 34,
-    "status": true,
-    "category": "ropa"
-  },
-  {
-    "id": "8",
-    "title": "yate",
-    "description": "genial",
-    "price": 400000,
-    "thumbnail": "sin imagen",
-    "code": "aszxcvdf45",
-    "stock": 1,
-    "status": true,
-    "category": "bote"
   }
 ]
